@@ -1,0 +1,2074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09090d">
+<title>For Zara Cutiey</title>
+
+<style>
+:root {
+    --bg: #09090d;
+    --red: #ef3157;
+    --red-dark: #a60e31;
+    --pink: #ff9caf;
+    --white: #fff8fa;
+    --muted: #aaa1aa;
+    --border: rgba(255,255,255,.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow-x: hidden;
+    color: var(--white);
+    background:
+        radial-gradient(
+            ellipse at 50% 40%,
+            rgba(170,10,48,.2),
+            transparent 55%
+        ),
+        var(--bg);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+button {
+    font: inherit;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--pink);
+    outline-offset: 5px;
+}
+
+::selection {
+    background: var(--red);
+    color: white;
+}
+
+/* ==========================================
+   BACKGROUND
+========================================== */
+
+.background-glow {
+    position: fixed;
+    z-index: 0;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: rgba(225,25,65,.08);
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.glow-one {
+    top: -180px;
+    left: -140px;
+}
+
+.glow-two {
+    bottom: -180px;
+    right: -140px;
+}
+
+#ambient-hearts {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.ambient-heart {
+    position: absolute;
+    bottom: -30px;
+    color: var(--red);
+    opacity: 0;
+    animation: ambientFloat var(--life) linear forwards;
+}
+
+@keyframes ambientFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(0) rotate(0deg);
+    }
+
+    15% {
+        opacity: .35;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-105vh) rotate(35deg);
+    }
+}
+
+/* ==========================================
+   MAIN PAGE LAYOUT
+========================================== */
+
+.page {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 24px;
+}
+
+.topbar,
+.footer {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.topbar {
+    min-height: 74px;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+.brand span {
+    color: var(--red);
+}
+
+.top-label {
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 0;
+}
+
+.experience {
+    width: 100%;
+    max-width: 680px;
+    margin: auto;
+    text-align: center;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    color: var(--pink);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2.4px;
+    animation: slideDown .8s ease both;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 0 0 12px var(--red);
+}
+
+h1 {
+    margin-top: 19px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(43px, 8vw, 74px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    animation: slideDown .8s .1s ease both;
+}
+
+h1 span {
+    display: block;
+    color: var(--red);
+    font-style: italic;
+}
+
+.subtitle {
+    max-width: 410px;
+    margin: 17px auto 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+    animation: slideDown .8s .18s ease both;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   ANIMATED ENVELOPE
+========================================== */
+
+.envelope-scene {
+    margin: 38px auto 0;
+    transition: opacity .4s ease, transform .4s ease;
+    animation: envelopeSlideIn 1s .25s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.envelope-scene.leaving {
+    opacity: 0;
+    transform: translateY(-35px) scale(.94);
+    pointer-events: none;
+}
+
+.envelope-scene[hidden] {
+    display: none !important;
+}
+
+@keyframes envelopeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(65px) scale(.93);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.envelope-button {
+    display: block;
+    width: 250px;
+    max-width: 72vw;
+    margin: auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    animation: envelopeFloat 3.2s ease-in-out infinite;
+}
+
+.envelope-button:disabled {
+    cursor: default;
+}
+
+@keyframes envelopeFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.envelope {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.45;
+    perspective: 1000px;
+    filter: drop-shadow(0 20px 28px rgba(0,0,0,.35));
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 5px;
+    background: #6d0d26;
+}
+
+.letter-preview {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 5%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 4px;
+    background: #f7e9ed;
+    color: #89132e;
+    transition: transform .65s cubic-bezier(.2,.8,.2,1);
+}
+
+.letter-preview span {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-style: italic;
+}
+
+.letter-preview small {
+    color: #896b74;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: 5px;
+    background: linear-gradient(145deg, #e52c51, #9f0c2d);
+    clip-path: polygon(0 0, 50% 57%, 100% 0, 100% 100%, 0 100%);
+}
+
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    background: linear-gradient(145deg, #fc5273, #ad1033);
+    clip-path: polygon(0 0, 100% 0, 50% 64%);
+    transform-origin: top center;
+    transition: transform .55s ease;
+}
+
+.seal {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 2px solid rgba(255,255,255,.24);
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ff90a4, #c3153b);
+    color: white;
+    font-size: 19px;
+    box-shadow: 0 5px 17px rgba(0,0,0,.3);
+    transform: translate(-50%, -15%);
+    transition: opacity .25s, transform .25s;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter-preview {
+    transform: translateY(-53%);
+}
+
+.envelope.open .seal {
+    opacity: 0;
+    transform: translate(-50%, -15%) scale(.3);
+}
+
+.tap-hint {
+    margin-top: 27px;
+    color: var(--pink);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2.3px;
+    animation: hintPulse 1.8s ease-in-out infinite;
+}
+
+.tap-subhint {
+    margin-top: 10px;
+    color: #827a84;
+    font-size: 11px;
+}
+
+@keyframes hintPulse {
+    0%, 100% { opacity: .55; }
+    50% { opacity: 1; }
+}
+
+/* ==========================================
+   APOLOGY CARD
+========================================== */
+
+.letter-content {
+    width: 100%;
+    margin: 0 auto;
+    padding: 32px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 19px;
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(232,49,85,.08),
+            transparent 35%
+        ),
+        #f8eff1;
+    color: #30232a;
+    text-align: left;
+    box-shadow: 0 30px 90px rgba(0,0,0,.28);
+}
+
+.letter-content[hidden] {
+    display: none !important;
+}
+
+.letter-content.visible {
+    animation: letterSlide .75s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes letterSlide {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.letter-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(100,30,50,.13);
+}
+
+.letter-label {
+    color: #a52846;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.letter-heart {
+    color: #d52a4c;
+    font-size: 24px;
+}
+
+.letter-content h2 {
+    margin-top: 26px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(33px, 6vw, 47px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.letter-content h2 span {
+    color: #bd193d;
+    font-style: italic;
+}
+
+.message {
+    min-height: 125px;
+    margin-top: 23px;
+    color: #594750;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.95;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 18px;
+    margin-left: 3px;
+    vertical-align: middle;
+    background: #c41c41;
+    animation: cursorBlink .75s steps(2) infinite;
+}
+
+@keyframes cursorBlink {
+    50% { opacity: 0; }
+}
+
+.signature {
+    margin-top: 23px;
+    padding-top: 19px;
+    border-top: 1px solid rgba(100,30,50,.13);
+    color: #8d737c;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.signature span {
+    color: #c51a40;
+}
+
+/* ==========================================
+   APOLOGY BUTTONS
+========================================== */
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.action-button {
+    min-height: 48px;
+    padding: 13px 18px;
+    border: 1px solid rgba(170,20,55,.22);
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .8px;
+    cursor: pointer;
+    transition:
+        transform .22s,
+        box-shadow .22s,
+        background .22s;
+}
+
+.action-button:hover {
+    transform: translateY(-2px);
+}
+
+.action-button:active {
+    transform: scale(.97);
+}
+
+/* IT'S OKIE — CELEBRATION BUTTON */
+
+.okie-button {
+    position: relative;
+    overflow: hidden;
+    flex: 1 1 190px;
+    min-height: 54px;
+    padding: 15px 22px;
+    border: 1px solid rgba(255,160,180,.65);
+    border-radius: 9px;
+    background: linear-gradient(120deg, #fb4168, #b30f35, #f44870);
+    background-size: 200% 200%;
+    color: white;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    box-shadow:
+        0 0 22px rgba(239,49,85,.32),
+        inset 0 1px rgba(255,255,255,.2);
+    animation: okieGlow 2.5s ease infinite;
+    cursor: pointer;
+}
+
+.okie-button:hover {
+    box-shadow: 0 0 35px rgba(239,49,85,.58);
+}
+
+@keyframes okieGlow {
+    0%, 100% {
+        background-position: 0% 50%;
+        box-shadow: 0 0 18px rgba(239,49,85,.3);
+    }
+
+    50% {
+        background-position: 100% 50%;
+        box-shadow: 0 0 32px rgba(239,49,85,.55);
+    }
+}
+
+/* NO BUTTON */
+
+.no-button {
+    flex: 1 1 160px;
+    min-height: 54px;
+    color: #ff6685;
+    background: #100b11;
+    border: 1px solid rgba(255,75,110,.65);
+    box-shadow: 0 0 15px rgba(255,40,80,.12);
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.no-button:hover {
+    background: #2b0b17;
+    box-shadow: 0 0 28px rgba(255,40,80,.35);
+}
+
+.secondary-button {
+    flex: 1 1 160px;
+    background: transparent;
+    color: #971533;
+}
+
+.status {
+    min-height: 18px;
+    margin-top: 12px;
+    color: #8e1833;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.footer {
+    min-height: 60px;
+    border-top: 1px solid var(--border);
+    color: #77717a;
+    font-size: 9px;
+    letter-spacing: 1.3px;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   CELEBRATION OVERLAY
+========================================== */
+
+#celebration {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    overflow: hidden;
+    pointer-events: none;
+    contain: layout paint;
+}
+
+.fx-layer {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* ==========================================
+   1. HEART RAIN
+   Bottom to middle — 10 seconds
+========================================== */
+
+.fx-heart {
+    position: absolute;
+    left: var(--left);
+    bottom: var(--bottom);
+    color: var(--color);
+    font-size: var(--size);
+    line-height: 1;
+    opacity: 0;
+    text-shadow: 0 0 12px var(--color);
+    filter: drop-shadow(0 0 4px var(--color));
+    animation: heartRise var(--life) ease-out var(--delay) both;
+    will-change: transform, opacity;
+}
+
+@keyframes heartRise {
+    0% {
+        opacity: 0;
+        transform: translate3d(0,0,0) scale(.4) rotate(-20deg);
+    }
+
+    15% {
+        opacity: .95;
+    }
+
+    65% {
+        opacity: .85;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate3d(var(--drift), -50vh, 0)
+            scale(1.15)
+            rotate(220deg);
+    }
+}
+
+/* ==========================================
+   2. FLOWER SHOWER
+   Top to middle — 8 seconds
+========================================== */
+
+.fx-flower {
+    position: absolute;
+    top: -40px;
+    left: var(--left);
+    color: var(--color);
+    font-size: var(--size);
+    line-height: 1;
+    opacity: 0;
+    text-shadow: 0 0 13px var(--color);
+    animation: flowerShower var(--life) ease-in-out var(--delay) both;
+    will-change: transform, opacity;
+}
+
+@keyframes flowerShower {
+    0% {
+        opacity: 0;
+        transform: translate3d(0,0,0) rotate(0deg) scale(.6);
+    }
+
+    15% {
+        opacity: .95;
+    }
+
+    70% {
+        opacity: .9;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate3d(var(--drift), 46vh, 0)
+            rotate(240deg)
+            scale(1.05);
+    }
+}
+
+/* ==========================================
+   3. FIREWORKS
+   Bottom to upper-middle — around 6 seconds
+========================================== */
+
+.fx-rocket {
+    position: absolute;
+    bottom: 0;
+    left: var(--left);
+    width: 4px;
+    height: 36px;
+    border-radius: 50%;
+    opacity: 0;
+    background: linear-gradient(to top, transparent, var(--color), #fff);
+    box-shadow: 0 0 7px var(--color), 0 0 17px var(--color);
+    animation: rocketLaunch .72s cubic-bezier(.2,.7,.25,1) var(--delay) both;
+    will-change: transform, opacity;
+}
+
+@keyframes rocketLaunch {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scaleY(.6);
+    }
+
+    12% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(var(--travel)) scaleY(1);
+    }
+}
+
+.fx-spark {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--color);
+    box-shadow: 0 0 8px var(--color), 0 0 16px var(--color);
+    opacity: 0;
+    animation: sparkBurst var(--life) ease-out forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes sparkBurst {
+    0% {
+        opacity: 1;
+        transform: translate(0,0) scale(1);
+    }
+
+    70% {
+        opacity: .9;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(var(--dx),var(--dy)) scale(.12);
+    }
+}
+
+.fx-flash {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    box-shadow:
+        0 0 15px 7px var(--color),
+        0 0 35px 14px var(--color);
+    animation: fireworkFlash .45s ease-out forwards;
+}
+
+@keyframes fireworkFlash {
+    0% {
+        opacity: 1;
+        transform: translate(-50%,-50%) scale(.2);
+    }
+
+    45% {
+        opacity: 1;
+        transform: translate(-50%,-50%) scale(1.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%,-50%) scale(3);
+    }
+}
+
+/* ==========================================
+   FAKE SYSTEM CRASH OVERLAY
+========================================== */
+
+#noCrashScreen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    overflow: hidden;
+    isolation: isolate;
+    background: #050408;
+    color: white;
+    font-family: "Courier New", monospace;
+}
+
+#noCrashScreen.active {
+    display: block;
+}
+
+.crash-noise {
+    position: absolute;
+    inset: -12px;
+    z-index: 0;
+    pointer-events: none;
+    opacity: .8;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 3px,
+            rgba(255,30,76,.14) 4px,
+            transparent 5px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 0,
+            transparent 2px,
+            transparent 6px
+        );
+}
+
+#noCrashScreen.is-crashing .crash-noise {
+    animation: crashNoise .1s steps(2,end) infinite;
+}
+
+@keyframes crashNoise {
+    0% {
+        transform: translate(0,0);
+        filter: hue-rotate(0deg);
+    }
+
+    25% {
+        transform: translate(4px,-3px);
+        filter: hue-rotate(30deg);
+    }
+
+    50% {
+        transform: translate(-5px,2px);
+        filter: hue-rotate(-30deg);
+    }
+
+    75% {
+        transform: translate(3px,4px);
+    }
+
+    100% {
+        transform: translate(-2px,-2px);
+    }
+}
+
+.crash-topline,
+.crash-error-code {
+    position: absolute;
+    left: 14px;
+    z-index: 4;
+    max-width: calc(100% - 28px);
+    overflow-wrap: anywhere;
+    font-size: clamp(9px,2vw,12px);
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.crash-topline {
+    top: 16px;
+    color: #ff526f;
+}
+
+.crash-error-code {
+    top: 38px;
+    color: #aaa0b6;
+    font-size: 10px;
+}
+
+/* Random apologies across the entire screen */
+
+#crashSorryLayer {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.crash-word {
+    position: absolute;
+    max-width: 95vw;
+    color: var(--crash-color);
+    font-family: "Courier New", monospace;
+    font-size: var(--crash-size);
+    font-weight: 900;
+    line-height: .95;
+    letter-spacing: -1.3px;
+    white-space: nowrap;
+    text-shadow:
+        3px 0 rgba(255,0,60,.8),
+        -3px 0 rgba(0,220,255,.6),
+        0 0 13px var(--crash-color);
+    opacity: .9;
+    animation: sorryGlitch .13s steps(2,end) var(--crash-delay) infinite alternate;
+    will-change: transform, opacity;
+}
+
+@keyframes sorryGlitch {
+    0% {
+        opacity: .5;
+        transform: translate(0,0) rotate(var(--crash-rotation));
+        clip-path: inset(0 0 0 0);
+    }
+
+    20% {
+        opacity: 1;
+        transform:
+            translate(var(--dx1),var(--dy1))
+            rotate(var(--crash-rotation));
+        clip-path: inset(10% 0 20% 0);
+    }
+
+    45% {
+        opacity: .65;
+        transform:
+            translate(var(--dx2),var(--dy2))
+            rotate(var(--crash-rotation));
+        clip-path: inset(35% 0 5% 0);
+    }
+
+    70% {
+        opacity: 1;
+        transform:
+            translate(var(--dx3),var(--dy3))
+            rotate(var(--crash-rotation));
+        clip-path: inset(0 0 0 0);
+    }
+
+    100% {
+        opacity: .75;
+        transform: translate(0,0) rotate(var(--crash-rotation));
+    }
+}
+
+/* Recovery message after 15 seconds */
+
+#crashEnding {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    overflow-y: auto;
+    background: rgba(5,4,9,.97);
+    opacity: 0;
+    transition: opacity .65s ease;
+}
+
+#crashEnding[hidden] {
+    display: none !important;
+}
+
+#crashEnding.show {
+    opacity: 1;
+}
+
+.crash-card {
+    width: min(100%,450px);
+    padding: 35px 26px;
+    text-align: center;
+    border: 1px solid rgba(255,65,103,.6);
+    border-radius: 16px;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,41,85,.16),
+            transparent 65%
+        ),
+        #100d14;
+    box-shadow:
+        0 0 35px rgba(255,30,76,.14),
+        0 25px 80px rgba(0,0,0,.45);
+    animation: recoveryEntrance .65s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes recoveryEntrance {
+    from {
+        transform: translateY(25px) scale(.96);
+    }
+
+    to {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.crash-icon {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 23px;
+    border: 1px solid #ff526f;
+    border-radius: 50%;
+    background: rgba(255,40,80,.12);
+    color: #ff526f;
+    font-size: 32px;
+    font-weight: 900;
+    box-shadow: 0 0 20px rgba(255,40,80,.2);
+}
+
+.crash-small-label {
+    color: #ff748d;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: 1.8;
+}
+
+.crash-card h2 {
+    margin-top: 17px;
+    color: #fff4f6;
+    font-family: "Segoe UI",Arial,sans-serif;
+    font-size: clamp(22px,5vw,32px);
+    line-height: 1.25;
+    letter-spacing: -.5px;
+}
+
+.crash-description {
+    max-width: 300px;
+    margin: 15px auto 25px;
+    color: #aaa0b0;
+    font-family: "Segoe UI",Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+#refreshPageButton {
+    width: 100%;
+    min-height: 54px;
+    padding: 14px 18px;
+    border: 1px solid rgba(255,180,194,.55);
+    border-radius: 9px;
+    color: white;
+    background: linear-gradient(110deg,#ff4267,#b00e33);
+    box-shadow: 0 0 25px rgba(255,45,87,.3);
+    font-size: 12px;
+    font-family: "Segoe UI",Arial,sans-serif;
+    font-weight: 900;
+    letter-spacing: 1.3px;
+    cursor: pointer;
+    animation: refreshPulse 1.8s ease-in-out infinite;
+    transition: transform .2s;
+}
+
+#refreshPageButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 35px rgba(255,45,87,.5);
+}
+
+#refreshPageButton:active {
+    transform: scale(.98);
+}
+
+@keyframes refreshPulse {
+    0%,100% {
+        box-shadow: 0 0 16px rgba(255,45,87,.2);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(255,45,87,.45);
+    }
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width: 600px) {
+    .page {
+        padding: 0 16px;
+    }
+
+    .topbar {
+        min-height: 62px;
+    }
+
+    .brand {
+        font-size: 15px;
+    }
+
+    .top-label {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    main {
+        padding: 28px 0;
+    }
+
+    h1 {
+        font-size: clamp(41px,11vw,56px);
+        letter-spacing: -1.5px;
+    }
+
+    .subtitle {
+        max-width: 320px;
+        font-size: 13px;
+    }
+
+    .envelope-scene {
+        margin-top: 34px;
+    }
+
+    .envelope-button {
+        width: 220px;
+    }
+
+    .tap-hint {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .letter-content {
+        padding: 23px 19px;
+    }
+
+    .letter-content h2 {
+        margin-top: 23px;
+    }
+
+    .message {
+        min-height: 150px;
+        font-size: 16px;
+        line-height: 1.9;
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+
+    .okie-button,
+    .no-button {
+        width: 100%;
+        flex-basis: auto;
+        min-height: 54px;
+    }
+
+    .footer {
+        min-height: 58px;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 10px 0;
+        text-align: center;
+        font-size: 8px;
+    }
+
+    .crash-card {
+        padding: 30px 20px;
+    }
+
+    .crash-word {
+        letter-spacing: -1px;
+    }
+}
+
+@media (max-height: 720px) and (min-width: 601px) {
+    main {
+        padding: 22px 0;
+    }
+
+    h1 {
+        font-size: 53px;
+    }
+
+    .subtitle {
+        margin-top: 10px;
+    }
+
+    .envelope-scene {
+        margin-top: 23px;
+    }
+
+    .envelope-button {
+        width: 205px;
+    }
+
+    .tap-hint {
+        margin-top: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .envelope-button,
+    .ambient-heart,
+    .okie-button,
+    #refreshPageButton {
+        animation: none;
+    }
+
+    #noCrashScreen.is-crashing .crash-noise,
+    .crash-word {
+        animation-duration: .3s;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+
+<div class="background-glow glow-one"></div>
+<div class="background-glow glow-two"></div>
+<div id="ambient-hearts" aria-hidden="true"></div>
+
+<!-- CELEBRATION LAYERS -->
+
+<div id="celebration" aria-hidden="true">
+    <div class="fx-layer" id="heartLayer"></div>
+    <div class="fx-layer" id="flowerLayer"></div>
+    <div class="fx-layer" id="fireworkLayer"></div>
+</div>
+
+<!-- FAKE SYSTEM CRASH SCREEN -->
+
+<div id="noCrashScreen" aria-hidden="true" tabindex="-1">
+
+    <div class="crash-noise"></div>
+
+    <div class="crash-topline">
+        SYSTEM ERROR // APOLOGY NOT RESPONDING
+    </div>
+
+    <div class="crash-error-code">
+        ERROR 404: SORRY NOT DELIVERED
+    </div>
+
+    <div id="crashSorryLayer"></div>
+
+    <div id="crashEnding" hidden>
+        <div class="crash-card">
+
+            <div class="crash-icon">!</div>
+
+            <p class="crash-small-label">
+                SYSTEM RECOVERY COMPLETE
+            </p>
+
+            <h2>WAIT... I'M STILL SORRY.</h2>
+
+            <p class="crash-description">
+                Too many apologies detected.
+                Let's start this page again.
+            </p>
+
+            <button id="refreshPageButton" type="button">
+                REFRESH WEBSITE ↻
+            </button>
+
+        </div>
+    </div>
+</div>
+
+<!-- MAIN WEBSITE -->
+
+<div class="page">
+
+    <header class="topbar">
+        <div class="brand">a little note<span>.</span></div>
+        <div class="top-label">MADE JUST FOR YOU</div>
+    </header>
+
+    <main>
+        <section class="experience">
+
+            <div class="eyebrow">
+                <span class="dot"></span>
+                SOMETHING FROM MY HEART
+            </div>
+
+            <h1>
+                Hey,
+                <span>Zara cutieee.</span>
+            </h1>
+
+            <p class="subtitle">
+                I have a little something to tell you.
+                Open this whenever you're ready.
+            </p>
+
+            <!-- ENVELOPE -->
+
+            <div class="envelope-scene" id="envelopeScene">
+
+                <button
+                    type="button"
+                    class="envelope-button"
+                    id="envelopeButton"
+                    aria-label="Tap to open your letter"
+                    aria-expanded="false"
+                >
+                    <div class="envelope" id="envelope">
+
+                        <div class="envelope-back"></div>
+
+                        <div class="letter-preview">
+                            <span>for Zara</span>
+                            <small>a little apology</small>
+                        </div>
+
+                        <div class="envelope-front"></div>
+                        <div class="envelope-flap"></div>
+
+                        <div class="seal">♥</div>
+                    </div>
+                </button>
+
+                <div class="tap-hint" id="tapHint">
+                    TAP THE ENVELOPE TO OPEN
+                </div>
+
+                <div class="tap-subhint">
+                    There's something I wanted to say.
+                </div>
+
+            </div>
+
+            <!-- APOLOGY CARD -->
+
+            <article
+                class="letter-content"
+                id="letterContent"
+                aria-label="Apology message for Zara"
+                aria-live="polite"
+                hidden
+            >
+
+                <div class="letter-top">
+                    <div class="letter-label">
+                        A MESSAGE JUST FOR YOU
+                    </div>
+
+                    <div class="letter-heart">♥</div>
+                </div>
+
+                <h2>
+                    I'm really
+                    <span>sorry.</span>
+                </h2>
+
+                <p class="message">
+                    <span id="typedMessage"></span><span
+                        class="cursor"
+                        id="typingCursor"
+                        aria-hidden="true"
+                    ></span>
+                </p>
+
+                <div class="signature">
+                    A little apology, from my heart
+                    <span> ♥</span>
+                </div>
+
+                <div class="button-row">
+
+                    <button
+                        type="button"
+                        class="action-button okie-button"
+                        id="okieButton"
+                    >
+                        IT'S OKIE ♥
+                    </button>
+
+                    <button
+                        type="button"
+                        class="action-button no-button"
+                        id="noButton"
+                    >
+                        NO! ✕
+                    </button>
+
+                </div>
+
+                <p class="status" id="status" role="status" aria-live="polite"></p>
+
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>JUST A REAL APOLOGY.</span>
+        <span>MADE WITH CARE · FOR ZARA</span>
+    </footer>
+
+</div>
+
+<script>
+/* ==========================================
+   SETTINGS AND PERSONAL APOLOGY
+========================================== */
+
+const apology =
+    "Sorry, Zara cutieee. I was waiting for the internet to come back, and unfortunately, I accidentally fell asleep. I really wanted to talk and talk to you... our unstoppable chat.";
+
+const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+);
+
+let crashStarted = false;
+let envelopeOpened = false;
+let typingTimer = null;
+let typingVersion = 0;
+
+let celebrationTimers = [];
+let ambientTimer = null;
+let crashTimer = null;
+
+function randomBetween(min, max) {
+    return min + Math.random() * (max - min);
+}
+
+function later(callback, delay) {
+    const timer = window.setTimeout(callback, delay);
+    celebrationTimers.push(timer);
+}
+
+
+/* ==========================================
+   ENVELOPE OPENING
+========================================== */
+
+const envelopeScene = document.getElementById("envelopeScene");
+const envelopeButton = document.getElementById("envelopeButton");
+const envelope = document.getElementById("envelope");
+
+const letterContent = document.getElementById("letterContent");
+const typedMessage = document.getElementById("typedMessage");
+const typingCursor = document.getElementById("typingCursor");
+
+const status = document.getElementById("status");
+
+function typeMessage() {
+    window.clearInterval(typingTimer);
+
+    typingVersion++;
+    const version = typingVersion;
+
+    typedMessage.textContent = "";
+    typingCursor.style.display = "inline-block";
+
+    if (reduceMotion.matches) {
+        typedMessage.textContent = apology;
+        typingCursor.style.display = "none";
+        return;
+    }
+
+    let index = 0;
+
+    typingTimer = window.setInterval(() => {
+        if (version !== typingVersion) {
+            window.clearInterval(typingTimer);
+            return;
+        }
+
+        typedMessage.textContent = apology.slice(0, index + 1);
+        index++;
+
+        if (index >= apology.length) {
+            window.clearInterval(typingTimer);
+            typingCursor.style.display = "none";
+        }
+    }, 30);
+}
+
+function openEnvelope() {
+    if (envelopeOpened || crashStarted) return;
+
+    envelopeOpened = true;
+
+    envelopeButton.disabled = true;
+    envelopeButton.setAttribute("aria-expanded", "true");
+
+    // Open the envelope flap.
+    envelope.classList.add("open");
+
+    document.getElementById("tapHint").textContent =
+        "OPENING YOUR LITTLE LETTER...";
+
+    // Slide away the opened envelope.
+    window.setTimeout(() => {
+        envelopeScene.classList.add("leaving");
+    }, 520);
+
+    // Remove the envelope completely and show the letter.
+    window.setTimeout(() => {
+        envelopeScene.hidden = true;
+        letterContent.hidden = false;
+
+        void letterContent.offsetWidth;
+
+        letterContent.classList.add("visible");
+        typeMessage();
+
+        letterContent.scrollIntoView({
+            behavior: reduceMotion.matches ? "auto" : "smooth",
+            block: "center"
+        });
+    }, reduceMotion.matches ? 20 : 950);
+}
+
+envelopeButton.addEventListener("click", openEnvelope);
+
+
+/* ==========================================
+   AMBIENT BACKGROUND HEARTS
+========================================== */
+
+const ambientHearts = document.getElementById("ambient-hearts");
+
+function createAmbientHeart() {
+    if (document.hidden || crashStarted) return;
+
+    const heart = document.createElement("span");
+
+    heart.className = "ambient-heart";
+    heart.textContent = Math.random() > .5 ? "♥" : "♡";
+
+    heart.style.left = randomBetween(0, 100) + "%";
+    heart.style.fontSize = randomBetween(10, 20) + "px";
+    heart.style.setProperty(
+        "--life",
+        randomBetween(9, 15) + "s"
+    );
+
+    ambientHearts.appendChild(heart);
+
+    window.setTimeout(() => heart.remove(), 16000);
+}
+
+if (!reduceMotion.matches) {
+    for (let i = 0; i < 6; i++) {
+        window.setTimeout(createAmbientHeart, i * 500);
+    }
+
+    ambientTimer = window.setInterval(createAmbientHeart, 1900);
+}
+
+
+/* ==========================================
+   CELEBRATION SYSTEM
+========================================== */
+
+const okieButton = document.getElementById("okieButton");
+
+const heartLayer = document.getElementById("heartLayer");
+const flowerLayer = document.getElementById("flowerLayer");
+const fireworkLayer = document.getElementById("fireworkLayer");
+
+const heartColors = [
+    "#ff3e70",
+    "#ff7ca4",
+    "#ffcfdf",
+    "#ff385c",
+    "#d966ff",
+    "#ffb347",
+    "#ff648c",
+    "#ffffff",
+    "#7cecff",
+    "#85ffb5"
+];
+
+const flowerColors = [
+    "#ff79a9",
+    "#ffd166",
+    "#b8f7d4",
+    "#d7a7ff",
+    "#ff9b73",
+    "#fff0f5",
+    "#ff4f81",
+    "#93e6ff"
+];
+
+const fireworkColors = [
+    "#ff3864",
+    "#ffb52e",
+    "#60eaff",
+    "#d681ff",
+    "#7dffad",
+    "#ffffff",
+    "#ff7e46",
+    "#f5f35b"
+];
+
+function clearCelebration() {
+    celebrationTimers.forEach(timer => window.clearTimeout(timer));
+    celebrationTimers = [];
+
+    heartLayer.replaceChildren();
+    flowerLayer.replaceChildren();
+    fireworkLayer.replaceChildren();
+}
+
+
+/* ==========================================
+   EFFECT 1: HEART RAIN
+   10 SECONDS — BOTTOM TO MIDDLE
+========================================== */
+
+function startHeartRain() {
+    const totalHearts = 105;
+
+    for (let i = 0; i < totalHearts; i++) {
+        const heart = document.createElement("span");
+
+        heart.className = "fx-heart";
+        heart.textContent = Math.random() > .3 ? "♥" : "♡";
+
+        heart.style.setProperty(
+            "--left",
+            randomBetween(1, 99) + "%"
+        );
+
+        heart.style.setProperty(
+            "--bottom",
+            randomBetween(0, 5) + "vh"
+        );
+
+        heart.style.setProperty(
+            "--size",
+            randomBetween(10, 22) + "px"
+        );
+
+        heart.style.setProperty(
+            "--color",
+            heartColors[
+                Math.floor(Math.random() * heartColors.length)
+            ]
+        );
+
+        heart.style.setProperty(
+            "--drift",
+            randomBetween(-95, 95) + "px"
+        );
+
+        const delay = randomBetween(0, 6.1);
+        const life = randomBetween(3.5, 3.9);
+
+        heart.style.setProperty("--delay", delay + "s");
+        heart.style.setProperty("--life", life + "s");
+
+        heartLayer.appendChild(heart);
+    }
+
+    later(() => heartLayer.replaceChildren(), 10100);
+}
+
+
+/* ==========================================
+   EFFECT 2: FLOWER SHOWER
+   8 SECONDS — TOP TO MIDDLE
+========================================== */
+
+function startFlowerShower() {
+    const flowerSymbols = [
+        "✿", "❀", "✽", "✾", "✺", "❁", "✻"
+    ];
+
+    const totalFlowers = 78;
+
+    for (let i = 0; i < totalFlowers; i++) {
+        const flower = document.createElement("span");
+
+        flower.className = "fx-flower";
+        flower.textContent =
+            flowerSymbols[
+                Math.floor(Math.random() * flowerSymbols.length)
+            ];
+
+        flower.style.setProperty(
+            "--left",
+            randomBetween(1, 99) + "%"
+        );
+
+        flower.style.setProperty(
+            "--size",
+            randomBetween(17, 31) + "px"
+        );
+
+        flower.style.setProperty(
+            "--color",
+            flowerColors[
+                Math.floor(Math.random() * flowerColors.length)
+            ]
+        );
+
+        flower.style.setProperty(
+            "--drift",
+            randomBetween(-90, 90) + "px"
+        );
+
+        const delay = randomBetween(0, 4.5);
+        const life = randomBetween(3, 3.35);
+
+        flower.style.setProperty("--delay", delay + "s");
+        flower.style.setProperty("--life", life + "s");
+
+        flowerLayer.appendChild(flower);
+    }
+
+    later(() => flowerLayer.replaceChildren(), 8100);
+}
+
+
+/* ==========================================
+   EFFECT 3: FIREWORKS
+   RAPID LAUNCHES — AROUND 6 SECONDS
+========================================== */
+
+function createFireworkBurst(x, y, mainColor) {
+    // A bright flash appears at the rocket's destination.
+    const flash = document.createElement("span");
+
+    flash.className = "fx-flash";
+    flash.style.setProperty("--x", x + "px");
+    flash.style.setProperty("--y", y + "px");
+    flash.style.setProperty("--color", mainColor);
+
+    fireworkLayer.appendChild(flash);
+
+    later(() => flash.remove(), 500);
+
+    // Each rocket creates a burst of colorful sparks.
+    const sparkCount = 25;
+
+    for (let i = 0; i < sparkCount; i++) {
+        const spark = document.createElement("span");
+
+        spark.className = "fx-spark";
+
+        const angle =
+            (Math.PI * 2 * i / sparkCount) +
+            randomBetween(-.12, .12);
+
+        const distance = randomBetween(35, 100);
+
+        const dx = Math.cos(angle) * distance;
+        const dy = Math.sin(angle) * distance;
+
+        const color = Math.random() > .35
+            ? mainColor
+            : fireworkColors[
+                Math.floor(Math.random() * fireworkColors.length)
+            ];
+
+        spark.style.setProperty("--x", x + "px");
+        spark.style.setProperty("--y", y + "px");
+        spark.style.setProperty("--dx", dx + "px");
+        spark.style.setProperty("--dy", dy + "px");
+        spark.style.setProperty("--color", color);
+        spark.style.setProperty(
+            "--life",
+            randomBetween(.85, 1.2) + "s"
+        );
+
+        spark.addEventListener("animationend", () => {
+            spark.remove();
+        }, { once: true });
+
+        fireworkLayer.appendChild(spark);
+    }
+}
+
+function startFireworks() {
+    const rocketCount = 11;
+    const flightTime = 720;
+    const shotInterval = 400;
+
+    for (let i = 0; i < rocketCount; i++) {
+        const rocket = document.createElement("span");
+
+        rocket.className = "fx-rocket";
+
+        const x = randomBetween(
+            window.innerWidth * .12,
+            window.innerWidth * .88
+        );
+
+        const travel = randomBetween(
+            window.innerHeight * .48,
+            window.innerHeight * .68
+        );
+
+        const y = Math.max(
+            45,
+            window.innerHeight - travel - 20
+        );
+
+        const color =
+            fireworkColors[
+                Math.floor(Math.random() * fireworkColors.length)
+            ];
+
+        const startDelay = i * shotInterval;
+
+        rocket.style.setProperty("--left", x + "px");
+        rocket.style.setProperty("--travel", -travel + "px");
+        rocket.style.setProperty("--color", color);
+        rocket.style.setProperty("--delay", startDelay / 1000 + "s");
+
+        fireworkLayer.appendChild(rocket);
+
+        later(() => {
+            rocket.remove();
+            createFireworkBurst(x, y, color);
+        }, startDelay + flightTime);
+    }
+
+    later(() => fireworkLayer.replaceChildren(), 6100);
+}
+
+
+/* ==========================================
+   IT'S OKIE BUTTON — START ALL THREE
+========================================== */
+
+okieButton.addEventListener("click", () => {
+    if (crashStarted) return;
+
+    clearCelebration();
+
+    startHeartRain();
+    startFlowerShower();
+    startFireworks();
+
+    status.textContent =
+        "A little happiness, a shower of flowers, and fireworks just for you. ♥";
+});
+
+
+/* ==========================================
+   NO BUTTON — FAKE SYSTEM CRASH
+========================================== */
+
+const noButton = document.getElementById("noButton");
+const noCrashScreen = document.getElementById("noCrashScreen");
+const crashSorryLayer = document.getElementById("crashSorryLayer");
+const crashEnding = document.getElementById("crashEnding");
+const refreshPageButton = document.getElementById("refreshPageButton");
+
+const crashColors = [
+    "#ff365e",
+    "#ff7897",
+    "#ffffff",
+    "#ffb7c7",
+    "#ff526f",
+    "#ffcfdf",
+    "#ffa4e8",
+    "#ff9d64",
+    "#a6f7ff",
+    "#d2a2ff"
+];
+
+const sorryMessages = [
+    "SORRY!",
+    "SORRY",
+    "I'M SORRY!",
+    "SORRYYYY!",
+    "SORRY ZARA!",
+    "SO SO SORRY",
+    "SORRY!!",
+    "I AM SORRY",
+    "SORRY CUTIEEE",
+    "SORRY SORRY",
+    "I'M REALLY SORRY"
+];
+
+function createCrashApologies() {
+    crashSorryLayer.replaceChildren();
+
+    const totalWords = window.innerWidth < 600 ? 75 : 105;
+
+    const sizes = [
+        12, 14, 16, 18, 20, 23,
+        27, 32, 38, 44, 51, 58
+    ];
+
+    for (let i = 0; i < totalWords; i++) {
+        const word = document.createElement("span");
+
+        word.className = "crash-word";
+
+        word.textContent =
+            sorryMessages[
+                Math.floor(Math.random() * sorryMessages.length)
+            ];
+
+        // Random sizes, positions, rotations and glitch movement.
+        word.style.left = randomBetween(0, 80) + "vw";
+        word.style.top = randomBetween(6, 93) + "vh";
+
+        word.style.setProperty(
+            "--crash-size",
+            sizes[Math.floor(Math.random() * sizes.length)] + "px"
+        );
+
+        word.style.setProperty(
+            "--crash-color",
+            crashColors[
+                Math.floor(Math.random() * crashColors.length)
+            ]
+        );
+
+        word.style.setProperty(
+            "--crash-rotation",
+            randomBetween(-30, 30) + "deg"
+        );
+
+        word.style.setProperty(
+            "--crash-delay",
+            randomBetween(0, .3) + "s"
+        );
+
+        for (let j = 1; j <= 3; j++) {
+            word.style.setProperty(
+                `--dx${j}`,
+                randomBetween(-24, 24) + "px"
+            );
+
+            word.style.setProperty(
+                `--dy${j}`,
+                randomBetween(-20, 20) + "px"
+            );
+        }
+
+        crashSorryLayer.appendChild(word);
+    }
+}
+
+function resizeCrashScreen() {
+    if (noCrashScreen.classList.contains("is-crashing")) {
+        createCrashApologies();
+    }
+}
+
+function startFakeCrash() {
+    if (crashStarted) return;
+
+    crashStarted = true;
+
+    // Stop any ongoing celebration effects.
+    clearCelebration();
+
+    // Stop ambient background effects.
+    if (ambientTimer !== null) {
+        window.clearInterval(ambientTimer);
+    }
+
+    ambientHearts.replaceChildren();
+    ambientHearts.style.display = "none";
+
+    // Display the fake crash over the entire screen.
+    noCrashScreen.classList.add("active", "is-crashing");
+    noCrashScreen.setAttribute("aria-hidden", "false");
+
+    document.body.style.overflow = "hidden";
+
+    crashEnding.hidden = true;
+    crashEnding.classList.remove("show");
+
+    createCrashApologies();
+
+    window.addEventListener("resize", resizeCrashScreen);
+
+    // After exactly 15 seconds, stop the error effect.
+    crashTimer = window.setTimeout(finishFakeCrash, 15000);
+}
+
+function finishFakeCrash() {
+    window.clearTimeout(crashTimer);
+
+    noCrashScreen.classList.remove("is-crashing");
+    crashSorryLayer.replaceChildren();
+
+    window.removeEventListener("resize", resizeCrashScreen);
+
+    // Show the recovery card.
+    crashEnding.hidden = false;
+
+    requestAnimationFrame(() => {
+        crashEnding.classList.add("show");
+        refreshPageButton.focus({ preventScroll: true });
+    });
+}
+
+noButton.addEventListener("click", startFakeCrash);
+
+
+/* ==========================================
+   REFRESH WEBSITE
+========================================== */
+
+refreshPageButton.addEventListener("click", () => {
+    window.location.reload();
+});
+</script>
+
+</body>
+</html>
